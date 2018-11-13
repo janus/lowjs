@@ -13,6 +13,7 @@
 #include "low_net.h"
 #include "low_process.h"
 #include "low_tls.h"
+#include "low_bcm2835.h"
 
 // The methods of the module 'native', accessable by files in lib_js directory
 duk_function_list_entry g_low_native_methods[] = {
@@ -64,4 +65,14 @@ duk_function_list_entry g_low_native_methods[] = {
   {"createCryptoHash", low_crypto_create_hash, 3},
   {"cryptoHashUpdate", low_crypto_hash_update, 2},
   {"cryptoHashDigest", low_crypto_hash_digest, 1},
+  {"bcm2835Init", low_bcm2835_init, 0},
+  {"bcm2835Close", low_bcm2835_close, 0},
+  {"bcm2835SetDebug", low_bcm2835_set_debug, 2},
+  {"bcm2835GpioFsel", low_bcm2835_gpio_fsel, 3},
+  {"bcm2835GpioSet", low_bcm2835_gpio_set, 2},
+  {"bcm2835GpioClr", low_bcm2835_gpio_clr, 2},
+  {"bcm2835GpioLev", low_bcm2835_gpio_lev, 2},
+  {"bcm2835GpioDelay", low_bcm2835_gpio_delay, 2},
   {NULL, NULL, 0}};
+
+
